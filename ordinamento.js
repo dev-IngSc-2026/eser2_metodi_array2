@@ -1,26 +1,39 @@
-// Dichiariamo l'array di partenza fornito dalla traccia
 let numeri = [3, 7, -2, 5, 8, 1, 2, 5, 6, -4, 12, 25];
 
-console.log("Array originale:", numeri);
+console.log("--- ORDINAMENTO DECRESCENTE ---");
 
-// ==========================================
-// ESERCIZIO BASE: Ordine Decrescente
-// ==========================================
-// Usiamo [...numeri] per creare una COPIA dell'array, così non roviniamo l'originale.
-// Poi applichiamo sort() passandogli una funzione di confronto matematica.
-let ordineDecrescente = [...numeri].sort(function(a, b) {
-    return b - a; // Se il risultato è positivo, 'b' viene messo prima di 'a'
+// Usiamo la parola chiave "function" classica, senza frecce o scorciatoie
+numeri.sort(function(a, b) {
+    // Se il primo numero è più piccolo del secondo, lo spostiamo indietro (restituendo 1)
+    if (a < b) {
+        return 1;
+    } 
+    // Se il primo numero è più grande, lo portiamo avanti (restituendo -1)
+    else if (a > b) {
+        return -1;
+    } 
+    // Se sono uguali, li lasciamo fermi (restituendo 0)
+    else {
+        return 0;
+    }
 });
 
-console.log("Ordine Decrescente:", ordineDecrescente);
+console.log("Risultato decrescente: " + numeri);
 
 
-// ==========================================
-// VARIANTE: Ordine Crescente
-// ==========================================
-// Stessa logica, ma invertiamo la sottrazione matematica.
-let ordineCrescente = [...numeri].sort(function(a, b) {
-    return a - b; // Se il risultato è negativo, 'a' viene messo prima di 'b'
+console.log("--- ORDINAMENTO CRESCENTE (VARIANTE) ---");
+
+// Per la variante, invertiamo semplicemente i segni di maggiore e minore negli if
+numeri.sort(function(a, b) {
+    if (a > b) {
+        return 1;
+    } 
+    else if (a < b) {
+        return -1;
+    } 
+    else {
+        return 0;
+    }
 });
 
-console.log("Ordine Crescente:", ordineCrescente);
+console.log("Risultato crescente: " + numeri);
