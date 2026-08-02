@@ -1,39 +1,36 @@
 let numeri = [3, 7, -2, 5, 8, 1, 2, 5, 6, -4, 12, 25];
 
-console.log("--- ORDINAMENTO DECRESCENTE ---");
+console.log("Array originale: " + numeri);
 
-// Usiamo la parola chiave "function" classica, senza frecce o scorciatoie
-numeri.sort(function(a, b) {
-    // Se il primo numero è più piccolo del secondo, lo spostiamo indietro (restituendo 1)
-    if (a < b) {
-        return 1;
-    } 
-    // Se il primo numero è più grande, lo portiamo avanti (restituendo -1)
-    else if (a > b) {
-        return -1;
-    } 
-    // Se sono uguali, li lasciamo fermi (restituendo 0)
-    else {
-        return 0;
+// --- 1. ORDINAMENTO DECRESCENTE (con cicli for classici) ---
+let decrescente = [3, 7, -2, 5, 8, 1, 2, 5, 6, -4, 12, 25];
+
+for (let i = 0; i < decrescente.length; i++) {
+    for (let j = 0; j < decrescente.length - 1; j++) {
+        // Se il numero a sinistra è PIÙ PICCOLO del successivo, li scambiamo
+        if (decrescente[j] < decrescente[j + 1]) {
+            let temp = decrescente[j];
+            decrescente[j] = decrescente[j + 1];
+            decrescente[j + 1] = temp;
+        }
     }
-});
+}
 
-console.log("Risultato decrescente: " + numeri);
+console.log("Risultato decrescente: " + decrescente);
 
 
-console.log("--- ORDINAMENTO CRESCENTE (VARIANTE) ---");
+// --- 2. ORDINAMENTO CRESCENTE (VARIANTE) ---
+let crescente = [3, 7, -2, 5, 8, 1, 2, 5, 6, -4, 12, 25];
 
-// Per la variante, invertiamo semplicemente i segni di maggiore e minore negli if
-numeri.sort(function(a, b) {
-    if (a > b) {
-        return 1;
-    } 
-    else if (a < b) {
-        return -1;
-    } 
-    else {
-        return 0;
+for (let i = 0; i < crescente.length; i++) {
+    for (let j = 0; j < crescente.length - 1; j++) {
+        // Se il numero a sinistra è PIÙ GRANDE del successivo, li scambiamo
+        if (crescente[j] > crescente[j + 1]) {
+            let temp = crescente[j];
+            crescente[j] = crescente[j + 1];
+            crescente[j + 1] = temp;
+        }
     }
-});
+}
 
-console.log("Risultato crescente: " + numeri);
+console.log("Risultato crescente: " + crescente);
